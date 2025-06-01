@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #0f766e;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+      transform: scale(1.1);
+    }
+    body.dark-mode {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    body.dark-mode h1 {
+      color: #2dd4bf;
+    }
+    body.dark-mode a {
+      color: #60a5fa;
+    }
+    body.dark-mode a:hover {
+      color: #93c5fd;
+    }
+    @media (max-width: 576px) {
+      body { padding: 20px; }
+      h1 { font-size: 1.5rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div data-aos="fade-up" data-aos-duration="800">
+    <h1>Thank You for Your Message!</h1>
+    <p>I'll get back to you soon.</p>
+    <p><a href="index.html">Return to Portfolio</a></p>
+  </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      disable: function() {
+        var maxWidth = 576;
+        return window.innerWidth < maxWidth;
+      }
+    });
+    // Apply dark mode if set in parent page
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Saipradeep Bomma's personal portfolio. Explore projects in machine learning, cloud, data analytics, and more.">
+  <meta name="keywords" content="Saipradeep Bomma, Data Scientist, Data Engineer, Machine Learning, Portfolio">
+  <meta name="author" content="Saipradeep Bomma">
+  <meta property="og:title" content="Saipradeep Bomma | Data Scientist & ML Enthusiast">
+  <meta property="og:description" content="Explore Saipradeep's portfolio with ML, Data Engineering, and Cloud projects.">
+  <meta property="og:image" content="your-image-url.jpg">
+  <meta property="og:url" content="https://your-portfolio.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Saipradeep Bomma | Data Scientist & ML Enthusiast</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #333;
+      line-height: 1.6;
+      padding-left: 1in;
+      padding-right: 1in;
+    }
+    header {
+      background: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-left: -1in;
+      margin-right: -1in;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    header h1 {
+      animation: bounceIn 1.2s ease-in-out;
+    }
+    .typewriter-container {
+      display: inline-block;
+      min-height: 1.5em;
+      vertical-align: middle;
+    }
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid white;
+      font-size: 1.1rem;
+      animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    nav {
+      background: #0f172a;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-left: -1in;
+      margin-right: -1in;
+    }
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    nav a:nth-child(1) { animation-delay: 0.1s; }
+    nav a:nth-child(2) { animation-delay: 0.2s; }
+    nav a:nth-child(3) { animation-delay: 0.3s; }
+    nav a:nth-child(4) { animation-delay: 0.4s; }
+    nav a:nth-child(5) { animation-delay: 0.5s; }
+    nav a:nth-child(6) { animation-delay: 0.6s; }
+    nav a:hover {
+      background: #1e293b;
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    section {
+      padding: 2rem 0;
+      margin: 0 auto;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #0f766e;
+    }
+    h3 {
+      color: #2563eb;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+    h3:hover {
+      background: #e2e8f0;
+      transform: scale(1.02);
+    }
+    h3.active {
+      background: #1e293b;
+      color: white;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.05) rotate(1deg);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+    footer {
+      text-align: center;
+      background: #0f172a;
+      color: white;
+      padding: 2rem 0;
+      margin-left: -1in;
+      margin-right: -1in;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .skill-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px) scale(1.05) rotate(1deg);
+    }
+    .skill-card h3 {
+      font-size: 1.2rem;
+      color: #1f2937;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: bold;
+      cursor: default;
+    }
+    .skill-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .skill-buttons span {
+      display: inline-block;
+      background: #334155;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #1e293b;
+      cursor: default;
+      transition: transform 0.2s ease, background 0.2s ease;
+      animation: bounceIn 0.5s ease-in-out;
+    }
+    .skill-buttons span:hover {
+      background: #1e293b;
+      transform: scale(1.05);
+    }
+    .skill-buttons span:nth-child(1) { animation-delay: 0.1s; }
+    .skill-buttons span:nth-child(2) { animation-delay: 0.2s; }
+    .skill-buttons span:nth-child(3) { animation-delay: 0.3s; }
+    .skill-buttons span:nth-child(4) { animation-delay: 0.4s; }
+    .skill-buttons span:nth-child(5) { animation-delay: 0.5s; }
+    .project a {
+      display: none;
+      margin-top: 10px;
+      color: #1d4ed8;
+      font-weight: bold;
+    }
+    .card.project:hover a {
+      display: inline-block;
+    }
+    .project a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      background: #e2e8f0;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+    .contact-section {
+      background: #f1f5f9;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .contact-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-section input, .contact-section textarea {
+      padding: 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-section input:focus, .contact-section textarea:focus {
+      transform: scale(1.02);
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+      outline: none;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 5px rgba(37, 99, 235, 0.3); }
+      to { box-shadow: 0 0 10px rgba(37, 99, 235, 0.5); }
+    }
+    .contact-section button {
+      padding: 0.75rem;
+      background: #334155;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .contact-section button:hover {
+      background: #1e293b;
+      transform: scale(1.1) translateY(-2px);
+      animation: bounce 0.4s ease-in-out;
+    }
+    .contact-section button:active {
+      animation: pulse 0.2s ease-in-out;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: scale(1.1) translateY(-2px); }
+      50% { transform: scale(1.15) translateY(-4px); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1.1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1.1); }
+    }
+    footer a {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    footer a:hover {
+      transform: scale(1.1) translateY(-3px);
+      color: #facc15;
+    }
+    /* Tabbed interface for courses */
+    .tab-content {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f1f5f9;
+      border-radius: 5px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab-content ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .tab-content ul li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+    body.dark-mode .tab-content {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+    body.dark-mode h3:hover {
+      background: #334155;
+    }
+    body.dark-mode h3.active {
+      background: #1e293b;
+      color: #f8fafc;
+    }
+    body.dark-mode .contact-section {
+      background: #1e293b;
+    }
+    body.dark-mode .contact-section input,
+    body.dark-mode .contact-section textarea {
+      background: #334155;
+      color: #e2e8f0;
+      border: 1px solid #4b5563;
+    }
+    body.dark-mode .contact-section button {
+      background: #4b5563;
+    }
+    body.dark-mode .contact-section button:hover {
+      background: #64748b;
+    }
+    @media (max-width: 576px) {
+      body { padding-left: 0.5in; padding-right: 0.5in; }
+      nav { flex-direction: column; align-items: center; }
+      nav a { padding: 0.25rem 0.5rem; font-size: 0.9rem; }
+      section { padding: 1rem 0; }
+      #about img { max-width: 300px; }
+      #about h2 { font-size: 1.5rem; }
+      #about p { font-size: 1rem; }
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 1rem; }
+      .contact-section { padding: 1rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-card { padding: 1rem; }
+      .skill-card h3 { font-size: 1rem; }
+      .skill-buttons span { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+      .tab-content { padding: 0.8rem; }
+      .tab-content ul li { font-size: 0.9rem; }
+      h3 { padding: 0.4rem; font-size: 1.2rem; }
+      .contact-section input, .contact-section textarea { font-size: 0.9rem; }
+      .contact-section button { font-size: 0.9rem; }
+    }
+    @media (min-width: 577px) and (max-width: 768px) {
+      body { padding-left: 0.75in; padding-right: 0.75in; }
+      nav { flex-direction: column; align-items: center; }
+      .grid { grid-template-columns: 1fr; }
+      #about img { max-width: 400px; }
+      #about h2 { font-size: 1.8rem; }
+      #about p { font-size: 1.05rem; }
+      .card { padding: 1.25rem; }
+      .skills-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+      .skill-card { padding: 1.25rem; }
+      .skill-card h3 { font-size: 1.1rem; }
+      .skill-buttons span { padding: 0.45rem 0.9rem; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); opacity: 1; }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+    @keyframes rotateIn {
+      from { transform: rotate(-10deg); opacity: 0; }
+      to { transform: rotate(0deg); opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    body.dark-mode {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    body.dark-mode nav,
+    body.dark-mode footer,
+    body.dark-mode .card,
+    body.dark-mode .skill-card,
+    body.dark-mode .contact-section {
+      background-color: #1e293b;
+      color: #e2e8f0;
+    }
+    body.dark-mode nav a:hover,
+    body.dark-mode .skill-buttons span:hover {
+      background-color: #334155;
+      color: #f8fafc;
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Saipradeep Bomma</h1>
+    <div class="typewriter-container">
+      <p id="typewriter" class="typewriter"></p>
+    </div>
+  </header>
+
+  <section id="about" style="padding: 4rem 0; min-height: 60vh; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+    <div style="width: 100%; display: flex; justify-content: center;">
+      <img src="profile.jpg" alt="Saipradeep Bomma at University of North Texas with Eagle Sign" style="width: 100%; max-width: 500px; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" data-aos="rotate-in">
+    </div>
+    <div style="width: 100%; text-align: center;" data-aos="slide-in-left" data-aos-delay="200">
+      <h2 style="color: #1f2937; font-size: 2rem; margin-bottom: 1rem;">Hi, I'm Saipradeep Bomma</h2>
+      <p style="font-size: 1.1rem; color: black; text-align: justify;">
+        I'm a recent Data Science graduate with a strong interest in uncovering insights from data. I enjoy solving problems using tools like Python, SQL, and data visualization platforms such as Tableau and Power BI. I’ve worked on several projects including sales forecasting, brain tumor prediction, and traffic sign recognition using deep learning. I previously worked as a Data Analyst Intern at Serole Technologies, where I built dashboards, automated reports, and optimized SQL workflows. My goal is to apply my skills in a full-time role where I can contribute to data-driven decision-making and continue learning in a professional environment.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="100">
+        <h3>An Enhanced Machine Learning Model for Prediction of Retail Sales</h3>
+        <p>Hybrid LSTM + XGBoost model for forecasting Walmart sales, achieving R² = 0.96. Emphasizes both temporal and structured data insights.</p>
+        <p><strong>Tech Stack:</strong> Python, LSTM, XGBoost, Pandas</p>
+        <a href="https://github.com/saipradeep16/An-Enhanced-Machine-Learning-Model-for-Prediction-of-Retail-Sales" target="_blank">View Project</a>
+      </div>
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="200">
+        <h3>AI Precision for Brain Tumor Prediction</h3>
+        <p>Deep learning model using CNN to classify MRI brain scans, deployed via Flask in a full-stack AI app.</p>
+        <p><strong>Tech Stack:</strong> Python, CNN, Keras, Flask, Rest API</p>
+        <a href="https://github.com/JahnaviCh25/AI-Precision-for-Brain-Tumor-Prediction" target="_blank">View Project</a>
+      </div>
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="300">
+        <h3>Data-Driven Insights from Netflix Content Using SQL</h3>
+        <p>Advanced SQL queries to explore Netflix trends—actors, genres, release years—using over 8800+ content records.</p>
+        <p><strong>Tech Stack:</strong> PostgreSQL, SQL</p>
+        <a href="https://github.com/saipradeep16/Netflix_Project_SQL" target="_blank">View Project</a>
+      </div>
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="400">
+        <h3>Weather Prediction and Visualization using Tableau</h3>
+        <p>Visual analytics dashboard created with Tableau to predict and monitor historical weather patterns.</p>
+        <p><strong>Tech Stack:</strong> Tableau, Data Visualization</p>
+        <a href="https://github.com/saipradeep16/Weather-Prediction-and-Visualization-using-Tableau" target="_blank">View Project</a>
+      </div>
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="500">
+        <h3>BigMart Sales Data Analysis</h3>
+        <p>Retail analytics pipeline built with OpenRefine, BigQuery, and Looker Studio to identify key sales trends.</p>
+        <p><strong>Tech Stack:</strong> OpenRefine, BigQuery, Looker Studio, GCP</p>
+        <a href="https://github.com/saipradeep16/BigMart-Sales-Data-Analysis" target="_blank">View Project</a>
+      </div>
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="600">
+        <h3>Travel Agency Management System</h3>
+        <p>System for managing customer travel bookings and operations using relational databases and front-end logic.</p>
+        <p><strong>Tech Stack:</strong> SQL</p>
+        <a href="https://github.com/saipradeep16/Travel-Agency-Management-System-" target="_blank">View Project</a>
+      </div>
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="700">
+        <h3>Weather-Aware Traffic Sign Recognition</h3>
+        <p>Deep learning traffic sign recognition model enhanced by incorporating real-time weather data for improved accuracy.</p>
+        <p><strong>Tech Stack:</strong> Python, CNN, OpenCV, Weather API</p>
+        <a href="https://github.com/Sai1022vi/Weather-Aware-Traffic-Sign-Recognition" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card" data-aos="scale-rotate" data-aos-delay="100">
+        <h3>Programming & Operating Systems</h3>
+        <div class="skill-buttons">
+          <span>Python</span>
+          <span>SQL</span>
+          <span>CSS</span>
+          <span>HTML</span>
+          <span>Linux (Ubuntu)</span>
+        </div>
+      </div>
+      <div class="skill-card" data-aos="scale-rotate" data-aos-delay="200">
+        <h3>Cloud Platforms</h3>
+        <div class="skill-buttons">
+          <span>GCP (BigQuery, Dataproc,Pub/Sub)</span>
+          <span>AWS (EC2, S3, IAM)</span>
+          <span>AZURE</span>
+        </div>
+      </div>
+      <div class="skill-card" data-aos="scale-rotate" data-aos-delay="300">
+        <h3>ETL & Big Data Tools</h3>
+        <div class="skill-buttons">  
+          <span>Apache Spark (Spark SQL)</span>
+          <span>Apache Hive</span>
+          <span>Hadoop</span>
+          <span>OpenRefine</span>
+          <span>Beeline CLI</span>
+        </div>
+      </div>
+      <div class="skill-card" data-aos="scale-rotate" data-aos-delay="500">
+        <h3>Data Modeling & Pipelines</h3>
+        <div class="skill-buttons">
+          <span>Data Warehousing</span>
+          <span>Time Series Pipeline</span>
+          <span>JSON/XML Parsing</span>
+        </div>
+      </div>
+      <div class="skill-card" data-aos="scale-rotate" data-aos-delay="600">
+        <h3>Data Visualization Tools and Databases</h3>
+        <div class="skill-buttons">
+          <span>Looker Studio</span>
+          <span>Power BI</span>
+          <span>Tableau</span>
+          <span>PostgreSQL</span>
+          <span>MySQL</span>
+          <span>MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-card" data-aos="scale-rotate" data-aos-delay="700">
+        <h3>Tools & Libraries</h3>
+        <div class="skill-buttons">
+          <span>Pandas</span>
+          <span>NumPy</span>
+          <span>Matplotlib</span>
+          <span>Jupyter</span>
+          <span>VS Code</span>
+          <span>MS Excel</span>
+          <span>PowerPoint</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" data-aos="slide-up">
+    <h2>Certifications</h2>
+    <div class="card" data-aos="rotate-in" data-aos-delay="100">
+      <h3><a href="https://coursera.org/verify/professional-cert/CZYZAAMKVE7Z" target="_blank">Google Data Analytics Certificate</a></h3>
+      <p>Completed rigorous training in data cleaning, analysis, visualization, and SQL using real-world datasets via Coursera.</p>
+    </div>
+    <div class="card" data-aos="rotate-in" data-aos-delay="200">
+      <h3>Microsoft Fabric Data Engineer (In Progress)</h3>
+      <p>Learning to manage, engineer, and transform data using Microsoft Fabric, including Lakehouse, Dataflows, and KQL.</p>
+    </div>
+    <div class="card" data-aos="rotate-in" data-aos-delay="300">
+      <h3><a href="https://drive.google.com/file/d/1fJefCnlOnDsU51yoFBxya9EMgcq8YISI/view?usp=sharing" target="_blank">Accenture Data Analytics Virtual Internship</a></h3>
+      <p>Gained hands-on experience with data analysis and business insights in a simulated corporate setting.</p>
+    </div>
+  </section>
+
+  <section id="experience" data-aos="slide-right">
+    <h2>Experience</h2>
+    <div class="card" data-aos="fade-up">
+      <h3>Data Analyst Intern</h3>
+      <p>Serole Technologies | 2021 – 2023</p>
+      <ul style="list-style-type: none;">
+        <li><span style="margin-right: 0.5rem;">✅</span> Created automated dashboards with Power BI to support cross-functional reporting needs.</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Developed optimized SQL queries to reduce processing time by 40%.</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Built Python scripts to automate data extraction and formatting workflows.</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Worked with stakeholders to gather requirements and transform raw data into actionable insights.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education" data-aos="slide-left">
+    <h2>Education</h2>
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3 onclick="openTab('masters-courses', this)">Master of Science in Data Science</h3>
+      <p>University of North Texas, Denton, TX | Aug 2023 – May 2025 | GPA: 4.0/4.0</p>
+      <div id="masters-courses" class="tab-content">
+        <ul>
+          <li>Harvesting, Storing & Retrieving Data</li>
+          <li>Applied ML for Data Scientists</li>
+          <li>Data Visualization</li>
+          <li>Data Analysis and Knowledge Discovery</li>
+          <li>Data Modeling</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <h3 onclick="openTab('bachelors-courses', this)">Bachelor of Technology in Computer Science and Engineering</h3>
+      <p>TKR College of Engineering and Technology, Hyderabad, India | Aug 2019 – May 2023</p>
+      <div id="bachelors-courses" class="tab-content">
+        <ul>
+          <li>Python</li>
+          <li>Data Warehousing & Data Mining</li>
+          <li>Probability and Statistics</li>
+          <li>Database Management System</li>
+          <li>Object Oriented Programming</li>
+          <li>Web Technologies</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section" data-aos="zoom-in">
+    <h2>Contact Me</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="be57bdb3-79c5-4d6f-aa58-0862bbbc6dd2">
+      <input type="hidden" name="redirect" value="https://github.com/saipradeep16/portfolio/blob/main/thankyou.html">
+      <input type="hidden" name="h-captcha-response">
+      <input type="text" name="name" placeholder="Your Name" required data-aos="fade-up" data-aos-delay="100">
+      <input type="email" name="email" placeholder="Your Email" required data-aos="fade-up" data-aos-delay="200">
+      <textarea name="message" rows="5" placeholder="Your Message" required data-aos="fade-up" data-aos-delay="300"></textarea>
+      <button type="submit" data-aos="fade-up" data-aos-delay="400">Send Message</button>
+    </form>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+  </section>
+
+  <footer data-aos="zoom-in">
+    <p>
+      <a href="https://www.linkedin.com/in/bsaipradeep/" target="_blank" style="color:#facc15;">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>  | 
+      <a href="https://github.com/saipradeep16" target="_blank" style="color:#facc15;">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </p>
+    <p>📍 Dallas, Texas   |  📧 <a href="mailto:saipradeepbomma16@gmail.com" style="color:#facc15;">saipradeepbomma16@gmail.com</a></p>
+    <p>© 2025 <strong>Saipradeep Bomma</strong> | Built with ❤️ using HTML & CSS</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      disable: function() {
+        var maxWidth = 576;
+        return window.innerWidth < maxWidth;
+      }
+    });
+
+    // Custom AOS animation for scale and rotate
+    AOS.init({
+      easing: 'ease-in-out',
+      once: true,
+    });
+
+    // Register custom AOS animation
+    AOS.init({
+      animation: 'scale-rotate',
+      on: {
+        'aos:in': function (elements) {
+          elements.forEach(function (el) {
+            el.style.transform = 'scale(0.95) rotate(-2deg)';
+            setTimeout(() => {
+              el.style.transform = 'scale(1) rotate(0deg)';
+            }, 100);
+          });
+        }
+      }
+    });
+
+    const phrases = [
+      "Data Science Graduate",
+      "Data Analyst",
+      "Aspiring Data Engineer",
+      "ML & Cloud Enthusiast",
+      "Turning Data into Decisions"
+    ];
+    let currentPhraseIndex = 0;
+    const typewriterElement = document.getElementById("typewriter");
+
+    function typeNextPhrase() {
+      typewriterElement.classList.remove("typewriter");
+      void typewriterElement.offsetWidth; // Trigger reflow to restart animation
+      typewriterElement.textContent = phrases[currentPhraseIndex];
+      typewriterElement.classList.add("typewriter");
+      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+    }
+
+    typeNextPhrase();
+    setInterval(typeNextPhrase, 4000); // Change phrase every 4 seconds
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    // Tab switching function
+    function openTab(tabId, element) {
+      // Hide all tab content in the education section
+      const tabContents = document.querySelectorAll('#education .tab-content');
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from all h3 elements in the education section
+      const tabs = document.querySelectorAll('#education h3');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Show the selected tab content and mark tab as active
+      const targetContent = document.getElementById(tabId);
+      if (targetContent.classList.contains('active')) {
+        targetContent.classList.remove('active'); // Hide if already active
+        element.classList.remove('active');
+      } else {
+        targetContent.classList.add('active');
+        element.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
