@@ -23,63 +23,55 @@
       background-color: #f8fafc;
       color: #333;
       line-height: 1.6;
-      padding-left: 1in;
-      padding-right: 1in;
+      padding: 0.5rem;
+      transition: margin-left 0.3s ease;
     }
-    header {
-      background: #1f2937;
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
-      margin-left: -1in;
-      margin-right: -1in;
-      animation: fadeInDown 1s ease-in-out;
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #e2e8f0;
+      cursor: pointer;
+      padding: 0.5rem;
+      position: fixed;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 1002;
+      background: #1e293b;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
     }
-    header h1 {
-      animation: bounceIn 1.2s ease-in-out;
-    }
-    .typewriter-container {
-      display: inline-block;
-      min-height: 1.5em;
-      vertical-align: middle;
-    }
-    .typewriter {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid white;
-      font-size: 1.1rem;
-      animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
+    .hamburger:hover {
+      transform: scale(1.1);
     }
     nav {
       background: #0f172a;
-      padding: 1rem;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 1000;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      padding: 2rem 1rem;
+      z-index: 1001;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       gap: 1rem;
-      margin-left: -1in;
-      margin-right: -1in;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+      transition: left 0.3s ease;
+    }
+    nav.active {
+      left: 0;
     }
     nav a {
       color: #e2e8f0;
       text-decoration: none;
-      padding: 0.5rem 1rem;
+      padding: 0.8rem 1rem;
       font-weight: bold;
       border-radius: 5px;
       transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s;
       opacity: 0;
-      animation: fadeIn 0.5s ease-in-out forwards;
+      animation: slideInRight 0.5s ease-in-out forwards;
     }
     nav a:nth-child(1) { animation-delay: 0.1s; }
     nav a:nth-child(2) { animation-delay: 0.2s; }
@@ -89,17 +81,33 @@
     nav a:nth-child(6) { animation-delay: 0.6s; }
     nav a:hover {
       background: #1e293b;
-      transform: scale(1.1) rotate(3deg);
+      transform: translateX(10px);
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      transition: opacity 0.3s ease;
+    }
+    .overlay.active {
+      display: block;
+      opacity: 1;
+    }
     section {
-      padding: 2rem 0;
+      padding: 1.5rem 0;
       margin: 0 auto;
     }
     h2 {
       margin-bottom: 1rem;
       text-align: center;
       color: #0f766e;
+      font-size: 1.8rem;
     }
     h3 {
       color: #2563eb;
@@ -119,11 +127,11 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      gap: 1rem;
     }
     .card {
       background: white;
-      padding: 1.5rem;
+      padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s;
@@ -132,23 +140,15 @@
       transform: translateY(-5px) scale(1.05) rotate(1deg);
       box-shadow: 0 6px 14px rgba(0,0,0,0.15);
     }
-    footer {
-      text-align: center;
-      background: #0f172a;
-      color: white;
-      padding: 2rem 0;
-      margin-left: -1in;
-      margin-right: -1in;
-    }
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
       margin-top: 1rem;
     }
     .skill-card {
       background: white;
-      padding: 1.5rem;
+      padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
@@ -157,7 +157,7 @@
       transform: translateY(-5px) scale(1.05) rotate(1deg);
     }
     .skill-card h3 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #1f2937;
       margin-bottom: 1rem;
       text-align: center;
@@ -171,10 +171,9 @@
       justify-content: center;
     }
     .skill-buttons span {
-      display: inline-block;
       background: #334155;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 20px;
       border: 1px solid #1e293b;
       cursor: default;
@@ -204,9 +203,9 @@
       text-decoration: underline;
     }
     .theme-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
+      position: fixed;
+      top: 0.5rem;
+      right: 0.5rem;
       cursor: pointer;
       background: #e2e8f0;
       border: none;
@@ -214,27 +213,28 @@
       border-radius: 5px;
       font-weight: bold;
       transition: transform 0.3s ease;
+      z-index: 1002;
     }
     .theme-toggle:hover {
       transform: scale(1.1);
     }
     .contact-section {
       background: #f1f5f9;
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 10px;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .contact-section form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.8rem;
     }
     .contact-section input, .contact-section textarea {
-      padding: 0.75rem;
+      padding: 0.6rem;
       border: 1px solid #cbd5e1;
       border-radius: 5px;
-      font-size: 1rem;
+      font-size: 0.9rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .contact-section input:focus, .contact-section textarea:focus {
@@ -248,12 +248,12 @@
       to { box-shadow: 0 0 10px rgba(37, 99, 235, 0.5); }
     }
     .contact-section button {
-      padding: 0.75rem;
+      padding: 0.6rem;
       background: #334155;
       color: white;
       border: none;
       border-radius: 5px;
-      font-size: 1rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: transform 0.3s ease, background 0.3s ease;
     }
@@ -274,14 +274,6 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1.1); }
     }
-    footer a {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    footer a:hover {
-      transform: scale(1.1) translateY(-3px);
-      color: #facc15;
-    }
-    /* Tabbed interface for courses */
     .tab-content {
       display: none;
       margin-top: 1rem;
@@ -299,8 +291,24 @@
     }
     .tab-content ul li {
       margin-bottom: 0.5rem;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #333;
+    }
+    body.dark-mode {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    body.dark-mode nav,
+    body.dark-mode .card,
+    body.dark-mode .skill-card,
+    body.dark-mode .contact-section {
+      background-color: #1e293b;
+      color: #e2e8f0;
+    }
+    body.dark-mode nav a:hover,
+    body.dark-mode .skill-buttons span:hover {
+      background-color: #334155;
+      color: #f8fafc;
     }
     body.dark-mode .tab-content {
       background: #1e293b;
@@ -312,9 +320,6 @@
     body.dark-mode h3.active {
       background: #1e293b;
       color: #f8fafc;
-    }
-    body.dark-mode .contact-section {
-      background: #1e293b;
     }
     body.dark-mode .contact-section input,
     body.dark-mode .contact-section textarea {
@@ -329,54 +334,68 @@
       background: #64748b;
     }
     @media (max-width: 576px) {
-      body { padding-left: 0.5in; padding-right: 0.5in; }
-      nav { flex-direction: column; align-items: center; }
-      nav a { padding: 0.25rem 0.5rem; font-size: 0.9rem; }
+      body { padding: 0.5rem; }
+      body.nav-open { margin-left: 250px; }
+      .hamburger { display: block; }
+      nav { display: flex; }
+      nav a {
+        padding: 0.8rem;
+        font-size: 1rem;
+        width: 100%;
+        text-align: left;
+      }
       section { padding: 1rem 0; }
-      #about img { max-width: 300px; }
+      #about img { max-width: 100%; }
       #about h2 { font-size: 1.5rem; }
-      #about p { font-size: 1rem; }
+      #about p { font-size: 0.95rem; }
       .grid { grid-template-columns: 1fr; }
       .card { padding: 1rem; }
       .contact-section { padding: 1rem; }
       .skills-grid { grid-template-columns: 1fr; }
       .skill-card { padding: 1rem; }
       .skill-card h3 { font-size: 1rem; }
-      .skill-buttons span { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+      .skill-buttons span { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
       .tab-content { padding: 0.8rem; }
-      .tab-content ul li { font-size: 0.9rem; }
-      h3 { padding: 0.4rem; font-size: 1.2rem; }
-      .contact-section input, .contact-section textarea { font-size: 0.9rem; }
-      .contact-section button { font-size: 0.9rem; }
+      .tab-content ul li { font-size: 0.85rem; }
+      h3 { padding: 0.4rem; font-size: 1.1rem; }
+      .contact-section input, .contact-section textarea { font-size: 0.85rem; }
+      .contact-section button { font-size: 0.85rem; }
+    }
+    @media (min-width: 577px) {
+      .hamburger { display: none; }
+      nav {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem;
+        position: sticky;
+        box-shadow: none;
+      }
+      nav a {
+        text-align: center;
+        width: auto;
+      }
+      .overlay { display: none; }
+      body.nav-open { margin-left: 0; }
     }
     @media (min-width: 577px) and (max-width: 768px) {
-      body { padding-left: 0.75in; padding-right: 0.75in; }
-      nav { flex-direction: column; align-items: center; }
+      body { padding: 0.75rem; }
       .grid { grid-template-columns: 1fr; }
-      #about img { max-width: 400px; }
-      #about h2 { font-size: 1.8rem; }
-      #about p { font-size: 1.05rem; }
-      .card { padding: 1.25rem; }
+      #about img { max-width: 100%; }
+      #about h2 { font-size: 1.7rem; }
+      #about p { font-size: 1rem; }
+      .card { padding: 1.2rem; }
       .skills-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-      .skill-card { padding: 1.25rem; }
-      .skill-card h3 { font-size: 1.1rem; }
-      .skill-buttons span { padding: 0.45rem 0.9rem; }
+      .skill-card { padding: 1.2rem; }
+      .skill-card h3 { font-size: 1.05rem; }
+      .skill-buttons span { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
     }
     @keyframes bounceIn {
       0% { transform: scale(0.3); opacity: 0; }
@@ -388,58 +407,32 @@
       from { transform: rotate(-10deg); opacity: 0; }
       to { transform: rotate(0deg); opacity: 1; }
     }
-    @keyframes slideInLeft {
-      from { transform: translateX(-50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
     @keyframes slideInRight {
-      from { transform: translateX(50px); opacity: 0; }
+      from { transform: translateX(-20px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
-    }
-    body.dark-mode {
-      background-color: #0f172a;
-      color: #e2e8f0;
-    }
-    body.dark-mode nav,
-    body.dark-mode footer,
-    body.dark-mode .card,
-    body.dark-mode .skill-card,
-    body.dark-mode .contact-section {
-      background-color: #1e293b;
-      color: #e2e8f0;
-    }
-    body.dark-mode nav a:hover,
-    body.dark-mode .skill-buttons span:hover {
-      background-color: #334155;
-      color: #f8fafc;
     }
   </style>
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
+  <button class="hamburger" onclick="toggleNav()">☰</button>
+  <div class="overlay" onclick="toggleNav()"></div>
+  <nav id="nav-menu">
+    <a href="#projects" onclick="toggleNav()">Projects</a>
+    <a href="#skills" onclick="toggleNav()">Skills</a>
+    <a href="#certifications" onclick="toggleNav()">Certifications</a>
+    <a href="#experience" onclick="toggleNav()">Experience</a>
+    <a href="#education" onclick="toggleNav()">Education</a>
+    <a href="#contact" onclick="toggleNav()">Contact</a>
   </nav>
 
-  <header>
-    <h1>Saipradeep Bomma</h1>
-    <div class="typewriter-container">
-      <p id="typewriter" class="typewriter"></p>
-    </div>
-  </header>
-
-  <section id="about" style="padding: 4rem 0; min-height: 60vh; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+  <section id="about" style="padding: 2rem 0; min-height: 50vh; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
     <div style="width: 100%; display: flex; justify-content: center;">
-      <img src="profile.jpg" alt="Saipradeep Bomma at University of North Texas with Eagle Sign" style="width: 100%; max-width: 500px; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" data-aos="rotate-in">
+      <img src="profile.jpg" alt="Saipradeep Bomma at University of North Texas with Eagle Sign" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" data-aos="rotate-in">
     </div>
     <div style="width: 100%; text-align: center;" data-aos="slide-in-left" data-aos-delay="200">
-      <h2 style="color: #1f2937; font-size: 2rem; margin-bottom: 1rem;">Hi, I'm Saipradeep Bomma</h2>
-      <p style="font-size: 1.1rem; color: black; text-align: justify;">
+      <h2 style="color: #1f2937; font-size: 1.8rem; margin-bottom: 1rem;">Hi, I'm Saipradeep Bomma</h2>
+      <p style="font-size: 1rem; color: black; text-align: justify;">
         I'm a recent Data Science graduate with a strong interest in uncovering insights from data. I enjoy solving problems using tools like Python, SQL, and data visualization platforms such as Tableau and Power BI. I’ve worked on several projects including sales forecasting, brain tumor prediction, and traffic sign recognition using deep learning. I previously worked as a Data Analyst Intern at Serole Technologies, where I built dashboards, automated reports, and optimized SQL workflows. My goal is to apply my skills in a full-time role where I can contribute to data-driven decision-making and continue learning in a professional environment.
       </p>
     </div>
@@ -575,21 +568,20 @@
   </section>
 
   <section id="experience" data-aos="slide-right">
-  <h2>Experience</h2>
-  <div class="card" data-aos="fade-up">
-    <h3>Data Engineer</h3>
-    <p>Serole Technologies | April 2021 – May 2023</p>
-    <ul style="list-style-type: none;">
-      <li><span style="margin-right: 0.5rem;">✅</span> Built and maintained scalable ETL pipelines using Python, SQL, and Spark, handling high-velocity data streams.</li>
-      <li><span style="margin-right: 0.5rem;">✅</span> Engineered data models for analytical workloads and BI reporting across multiple business domains.</li>
-      <li><span style="margin-right: 0.5rem;">✅</span> Automated ingestion pipelines integrating multiple RDBMS and semi-structured sources (JSON/XML).</li>
-      <li><span style="margin-right: 0.5rem;">✅</span> Designed validation frameworks and QA processes ensuring data accuracy and consistency.</li>
-      <li><span style="margin-right: 0.5rem;">✅</span> Delivered Power BI dashboards providing real-time KPI monitoring and business insights.</li>
-      <li><span style="margin-right: 0.5rem;">✅</span> Collaborated with QA, BI, Product, and IT teams following agile methodology.</li>
-    </ul>
-  </div>
-</section>
-
+    <h2>Experience</h2>
+    <div class="card" data-aos="fade-up">
+      <h3>Data Engineer</h3>
+      <p>Serole Technologies | April 2021 – May 2023</p>
+      <ul style="list-style-type: none;">
+        <li><span style="margin-right: 0.5rem;">✅</span> Built and maintained scalable ETL pipelines using Python, SQL, and Spark, handling high-velocity data streams.</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Engineered data models for analytical workloads and BI reporting across multiple business domains.</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Automated ingestion pipelines integrating multiple RDBMS and semi-structured sources (JSON/XML).</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Designed validation frameworks and QA processes ensuring data accuracy and consistency.</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Delivered Power BI dashboards providing real-time KPI monitoring and business insights.</li>
+        <li><span style="margin-right: 0.5rem;">✅</span> Collaborated with QA, BI, Product, and IT teams following agile methodology.</li>
+      </ul>
+    </div>
+  </section>
 
   <section id="education" data-aos="slide-left">
     <h2>Education</h2>
@@ -636,19 +628,6 @@
     <script src="https://web3forms.com/client/script.js" async defer></script>
   </section>
 
-  <footer data-aos="zoom-in">
-    <p>
-      <a href="https://www.linkedin.com/in/bsaipradeep/" target="_blank" style="color:#facc15;">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>  | 
-      <a href="https://github.com/saipradeep16" target="_blank" style="color:#facc15;">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-    </p>
-    <p>📍 Dallas, Texas   |  📧 <a href="mailto:saipradeepbomma16@gmail.com" style="color:#facc15;">saipradeepbomma16@gmail.com</a></p>
-    <p>© 2025 <strong>Saipradeep Bomma</strong> | Built with ❤️ using HTML & CSS</p>
-  </footer>
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
@@ -660,13 +639,11 @@
       }
     });
 
-    // Custom AOS animation for scale and rotate
     AOS.init({
       easing: 'ease-in-out',
       once: true,
     });
 
-    // Register custom AOS animation
     AOS.init({
       animation: 'scale-rotate',
       on: {
@@ -681,45 +658,29 @@
       }
     });
 
-    const phrases = [
-      "Data Science Graduate",
-      "Data Analyst",
-      "Aspiring Data Engineer",
-      "ML & Cloud Enthusiast",
-      "Turning Data into Decisions"
-    ];
-    let currentPhraseIndex = 0;
-    const typewriterElement = document.getElementById("typewriter");
-
-    function typeNextPhrase() {
-      typewriterElement.classList.remove("typewriter");
-      void typewriterElement.offsetWidth; // Trigger reflow to restart animation
-      typewriterElement.textContent = phrases[currentPhraseIndex];
-      typewriterElement.classList.add("typewriter");
-      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-    }
-
-    typeNextPhrase();
-    setInterval(typeNextPhrase, 4000); // Change phrase every 4 seconds
-
     function toggleTheme() {
       document.body.classList.toggle("dark-mode");
     }
 
-    // Tab switching function
+    function toggleNav() {
+      const nav = document.getElementById("nav-menu");
+      const overlay = document.querySelector(".overlay");
+      const body = document.body;
+      nav.classList.toggle("active");
+      overlay.classList.toggle("active");
+      body.classList.toggle("nav-open");
+    }
+
     function openTab(tabId, element) {
-      // Hide all tab content in the education section
       const tabContents = document.querySelectorAll('#education .tab-content');
       tabContents.forEach(content => content.classList.remove('active'));
 
-      // Remove active class from all h3 elements in the education section
       const tabs = document.querySelectorAll('#education h3');
       tabs.forEach(tab => tab.classList.remove('active'));
 
-      // Show the selected tab content and mark tab as active
       const targetContent = document.getElementById(tabId);
       if (targetContent.classList.contains('active')) {
-        targetContent.classList.remove('active'); // Hide if already active
+        targetContent.classList.remove('active');
         element.classList.remove('active');
       } else {
         targetContent.classList.add('active');
