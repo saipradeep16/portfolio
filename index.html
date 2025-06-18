@@ -274,6 +274,21 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1.1); }
     }
+    footer {
+      text-align: center;
+      background: #0f172a;
+      color: white;
+      padding: 2rem 0;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+    }
+    footer a {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    footer a:hover {
+      transform: scale(1.1) translateY(-3px);
+      color: #facc15;
+    }
     .tab-content {
       display: none;
       margin-top: 1rem;
@@ -301,7 +316,8 @@
     body.dark-mode nav,
     body.dark-mode .card,
     body.dark-mode .skill-card,
-    body.dark-mode .contact-section {
+    body.dark-mode .contact-section,
+    body.dark-mode footer {
       background-color: #1e293b;
       color: #e2e8f0;
     }
@@ -360,8 +376,10 @@
       h3 { padding: 0.4rem; font-size: 1.1rem; }
       .contact-section input, .contact-section textarea { font-size: 0.85rem; }
       .contact-section button { font-size: 0.85rem; }
+      footer { margin-left: -0.5rem; margin-right: -0.5rem; }
     }
     @media (min-width: 577px) {
+      body { padding: 0 1in; }
       .hamburger { display: none; }
       nav {
         left: 0;
@@ -380,9 +398,10 @@
       }
       .overlay { display: none; }
       body.nav-open { margin-left: 0; }
+      footer { margin-left: -1in; margin-right: -1in; }
     }
     @media (min-width: 577px) and (max-width: 768px) {
-      body { padding: 0.75rem; }
+      body { padding: 0 0.75in; }
       .grid { grid-template-columns: 1fr; }
       #about img { max-width: 100%; }
       #about h2 { font-size: 1.7rem; }
@@ -433,7 +452,7 @@
     <div style="width: 100%; text-align: center;" data-aos="slide-in-left" data-aos-delay="200">
       <h2 style="color: #1f2937; font-size: 1.8rem; margin-bottom: 1rem;">Hi, I'm Saipradeep Bomma</h2>
       <p style="font-size: 1rem; color: black; text-align: justify;">
-        I'm a recent Data Science graduate with a strong interest in uncovering insights from data. I enjoy solving problems using tools like Python, SQL, and data visualization platforms such as Tableau and Power BI. I’ve worked on several projects including sales forecasting, brain tumor prediction, and traffic sign recognition using deep learning. I previously worked as a Data Analyst Intern at Serole Technologies, where I built dashboards, automated reports, and optimized SQL workflows. My goal is to apply my skills in a full-time role where I can contribute to data-driven decision-making and continue learning in a professional environment.
+        I'm a Data Science graduate with extensive experience as a Data Engineer at Serole Technologies, where I built and maintained scalable ETL pipelines using Python, SQL, and Apache Spark. My expertise lies in designing data models for analytical workloads, automating data ingestion from diverse sources, and delivering real-time insights through Power BI dashboards. I’m passionate about leveraging tools like Microsoft Fabric, AWS, and GCP to transform complex datasets into actionable business solutions. My projects, including real-time earthquake analytics and machine learning for sales forecasting, reflect my commitment to driving data-driven decision-making. I’m eager to apply my skills in a dynamic role to solve challenging problems and advance innovative data solutions.
       </p>
     </div>
   </section>
@@ -442,42 +461,48 @@
     <h2>Projects</h2>
     <div class="grid">
       <div class="card project" data-aos="scale-rotate" data-aos-delay="100">
+        <h3>QuakeTrack: End-to-End Earthquake Analytics with Microsoft Fabric</h3>
+        <p>Developed a real-time data pipeline ingesting USGS earthquake data into Microsoft Fabric Lakehouse using a Bronze-Silver-Gold architecture.</p>
+        <p><strong>Tech Stack:</strong> Microsoft Fabric, PySpark, Azure Data Factory, Lakehouse, Pipelines, Power BI, REST API</p>
+        <a href="https://github.com/saipradeep16/QuakeTrack" target="_blank">View Project</a>
+      </div>
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="200">
         <h3>An Enhanced Machine Learning Model for Prediction of Retail Sales</h3>
         <p>Hybrid LSTM + XGBoost model for forecasting Walmart sales, achieving R² = 0.96. Emphasizes both temporal and structured data insights.</p>
         <p><strong>Tech Stack:</strong> Python, LSTM, XGBoost, Pandas</p>
         <a href="https://github.com/saipradeep16/An-Enhanced-Machine-Learning-Model-for-Prediction-of-Retail-Sales" target="_blank">View Project</a>
       </div>
-      <div class="card project" data-aos="scale-rotate" data-aos-delay="200">
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="300">
         <h3>AI Precision for Brain Tumor Prediction</h3>
         <p>Deep learning model using CNN to classify MRI brain scans, deployed via Flask in a full-stack AI app.</p>
         <p><strong>Tech Stack:</strong> Python, CNN, Keras, Flask, Rest API</p>
         <a href="https://github.com/JahnaviCh25/AI-Precision-for-Brain-Tumor-Prediction" target="_blank">View Project</a>
       </div>
-      <div class="card project" data-aos="scale-rotate" data-aos-delay="300">
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="400">
         <h3>Data-Driven Insights from Netflix Content Using SQL</h3>
         <p>Advanced SQL queries to explore Netflix trends—actors, genres, release years—using over 8800+ content records.</p>
         <p><strong>Tech Stack:</strong> PostgreSQL, SQL</p>
         <a href="https://github.com/saipradeep16/Netflix_Project_SQL" target="_blank">View Project</a>
       </div>
-      <div class="card project" data-aos="scale-rotate" data-aos-delay="400">
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="500">
         <h3>Weather Prediction and Visualization using Tableau</h3>
         <p>Visual analytics dashboard created with Tableau to predict and monitor historical weather patterns.</p>
         <p><strong>Tech Stack:</strong> Tableau, Data Visualization</p>
         <a href="https://github.com/saipradeep16/Weather-Prediction-and-Visualization-using-Tableau" target="_blank">View Project</a>
       </div>
-      <div class="card project" data-aos="scale-rotate" data-aos-delay="500">
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="600">
         <h3>BigMart Sales Data Analysis</h3>
         <p>Retail analytics pipeline built with OpenRefine, BigQuery, and Looker Studio to identify key sales trends.</p>
         <p><strong>Tech Stack:</strong> OpenRefine, BigQuery, Looker Studio, GCP</p>
         <a href="https://github.com/saipradeep16/BigMart-Sales-Data-Analysis" target="_blank">View Project</a>
       </div>
-      <div class="card project" data-aos="scale-rotate" data-aos-delay="600">
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="700">
         <h3>Travel Agency Management System</h3>
         <p>System for managing customer travel bookings and operations using relational databases and front-end logic.</p>
         <p><strong>Tech Stack:</strong> SQL</p>
         <a href="https://github.com/saipradeep16/Travel-Agency-Management-System-" target="_blank">View Project</a>
       </div>
-      <div class="card project" data-aos="scale-rotate" data-aos-delay="700">
+      <div class="card project" data-aos="scale-rotate" data-aos-delay="800">
         <h3>Weather-Aware Traffic Sign Recognition</h3>
         <p>Deep learning traffic sign recognition model enhanced by incorporating real-time weather data for improved accuracy.</p>
         <p><strong>Tech Stack:</strong> Python, CNN, OpenCV, Weather API</p>
@@ -627,6 +652,19 @@
     </form>
     <script src="https://web3forms.com/client/script.js" async defer></script>
   </section>
+
+  <footer data-aos="zoom-in">
+    <p>
+      <a href="https://www.linkedin.com/in/bsaipradeep/" target="_blank" style="color:#facc15;">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>  | 
+      <a href="https://github.com/saipradeep16" target="_blank" style="color:#facc15;">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </p>
+    <p>📍 Dallas, Texas   |  📧 <a href="mailto:saipradeepbomma16@gmail.com" style="color:#facc15;">saipradeepbomma16@gmail.com</a></p>
+    <p>© 2025 <strong>Saipradeep Bomma</strong> | Built with ❤️ using HTML & CSS</p>
+  </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
